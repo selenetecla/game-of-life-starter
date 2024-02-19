@@ -9,6 +9,15 @@ void setup() {
   grid = new int[height / SPACING][width / SPACING];
 
   // populate initial grid
+  for(int i = 0; i < grid.length; i++) {
+    for(int x = 0; x < grid[i].length; x++) {
+      if(random(1) < DENSITY) {
+        grid[i][x] = 1; // sets that element in the array to be a living cell
+      } else {
+        grid[i][x] = 0; // sets that element in the arrat to be a dead cell
+      }
+    }
+  }
   // your code here
 
 }
@@ -30,13 +39,22 @@ int countNeighbors(int y, int x) {
   int n = 0; // don't count yourself!
   
   // your code here
+  
   // don't check out-of-bounds cells
 
   return n;
 }
 
 void showGrid() {
-  // your code here
-  // use square() to represent each cell
-  // use fill(r, g, b) to control color: black for empty, red for filled (or alive)
+  background(0);
+  for(int i = 0; i < grid.length; i++) {
+    for(int x = 0; x < grid[i].length; x++) {
+      if(grid[i][x] == 1) {
+        fill(255, 0, 0); // fills red for live cells
+      } else {
+        fill(0); // fills black for dead cells
+      }
+      square(x * SPACING, i * SPACING, SPACING);
+    }
+  }
 }
