@@ -16,9 +16,9 @@ void setup() {
   for(int i = 0; i < grid.length; i++) {
     for(int x = 0; x < grid[0].length; x++) {
       if(random(1) < DENSITY) {
-        grid[i][x] = ALIVE; // sets that element in the array to be a living cell
+        grid[i][x] = ALIVE;
       } else {
-        grid[i][x] = DEAD; // sets that element in the arrat to be a dead cell
+        grid[i][x] = DEAD; 
       }
     }
   }
